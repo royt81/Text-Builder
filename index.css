@@ -1,0 +1,206 @@
+
+
+/* 
+
+html, body
+#container
+
+#textBuilder
+
+.manuExpend
+#quickManuOneExpend
+
+*/
+
+:root{
+    --background-wide: 3cm;
+    --section-wide: 3cm;
+    --expend-section-wide: 12cm;
+    --expend-section-min-wide: 6cm;
+    --list-wide: 2.5cm;
+
+    --section-heigth:12vh;
+    --expended-section-heigth:12vh;
+}
+
+*{
+    font-family: monospace;
+}
+
+html, body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+#container{
+    height: 100%;
+    width: 8cm;
+    background-color: pink;
+
+    display: flex;
+    flex-direction: row;
+    align-items:flex-start;
+    justify-content:flex-start;
+}
+
+#textBuilder{
+
+    margin: 1vh;
+    height: 90%;
+    width: var(--background-wide);
+    background-color: orange;
+
+    border-radius: 1vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+
+    padding: 1vh;
+    gap: 1vh;  
+
+    border-radius: 1vh;
+}
+
+.textBuilderSection{
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 0.5vh;
+    display: flex;
+    flex-direction: column;
+    height: var(--section-heigth);
+    width: var(--section-wide);
+}
+.textBuilderSection:hover{
+    background-color: rgb(133, 235, 82);
+    color: rgb(49, 40, 57);
+    cursor: pointer;
+}
+
+.textbuilderLabel{
+    background-color: rgba(204, 208, 212, 0.2);
+}
+
+#quickManuOne{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    overflow: hidden;
+    background-color: palevioletred;
+}
+#tel-notes{
+    background-color: rgb(147, 241, 241);
+}
+#tel-notes-expend{
+    background-color: cornflowerblue;
+}
+#phoneOrMail{
+    background-color: blueviolet;
+}
+#isLate{
+    background-color: skyblue;
+}
+#needOrGot{
+    background-color: rgb(161, 136, 184);
+}
+#subjuct{
+    background-color: bisque;
+}
+
+#recommend{
+    background-color: rgb(149, 204, 94);
+}
+#contactMe{
+    background-color: rgb(50, 50, 144);
+}
+#runButton{
+    background-color: rgb(18, 17, 17);
+}
+#quickManuOneExpend{
+    background-color: bisque;
+}
+#testOne{
+    background-color: coral;
+}
+
+.pushButton{
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 0.5vh;
+    display: flex;
+    flex-direction: column;
+    height: 10vh;
+    width: var(--section-wide);
+    color: blanchedalmond;
+    background-color: blueviolet;
+   
+}
+.pushButton:hover{
+    background-color: rgb(133, 235, 82);
+    color: rgb(49, 40, 57);
+    cursor: pointer;
+}
+.pointer{
+    background-color: aliceblue;
+}
+.pointer:hover{
+    cursor: pointer;
+    background-color: blueviolet;
+}
+
+.selectList{
+    width: var(--section-wide);
+    height: 5vh;
+}
+
+.manuExpend{
+    align-items: center;
+    justify-content: flex-end;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    height: var(--expended-section-heigth);
+    width: var(--expend-section-wide);
+    gap: 1vh;
+    
+    padding: 0 1vh;
+}
+
+
+/* .quickManuOneTest{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    overflow: hidden;
+} */
+ .expend-manu-test{
+    align-items: center;
+    justify-content: flex-start;
+    overflow: hidden;
+    border-radius: 0.5vh;
+    display: flex;
+    flex-direction: row;
+    height: var(--section-heigth);
+    width: var(--section-wide);
+    background-color: rgb(75, 95, 54);
+    gap: 1vh;
+ }
+ .label-test{
+    min-width: var(--section-wide);
+    background-color: darkmagenta;
+    text-align: center;
+ }
+
+ .list-and-name-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: var(--section-wide);
+ }
+ .list-and-name-section-label{
+
+ }

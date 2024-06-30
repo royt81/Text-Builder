@@ -77,6 +77,7 @@ const whatsTheProblem = [
 
 const headlines = [
   'Betreff DE',
+  'Betreff DE',
   'Unser Gespräch',
   'Dein Wechsel zu Rabot-Charge',
   'Deine Anfrage',
@@ -88,6 +89,7 @@ const headlines = [
 const headlinesEN = [
   'Subject EN',
   'Our discotion',
+  'Our discotion',
   'Your transfer to Rabot-Charge',
   'Your inquery',
   'Inquery',
@@ -96,7 +98,10 @@ const headlinesEN = [
 ]
 
 const quickTelNotes = [
-  'Das Thema wurde bereits mit eiem Kollegen besprochen',
+    'Quick notes',
+    'Das Thema wurde bereits mit eiem Kollegen besprochen',
+    'Das Thema wurde bereits mit eiem Kollegen besprochen',
+    'KD rief an, um den Status seiner WP yu erfahren',
 ]
 const telTicket = [
 
@@ -107,5 +112,6 @@ const telTicket = [
 const beNice = [
   'be nice!',
   `Gerne kannst du uns bei weiteren Fragen telefonisch kontaktieren.
-  Wir sind von Mo - Fr zwischen `
+  Wir sind von Mo - Fr zwischen 09:00 und 17:00 Uhr unter 040-593622030 erreichbar`,
+  `Als kleine Dankeschön werden wir deine Servicegebühr in Höhe von 4,99 € für den Monat XXX erlassen`,
 ]

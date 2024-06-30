@@ -21,19 +21,24 @@ function createTextBuilder(){
 
     // quick headlines copy past list //
   
-    const telNotes = createSimpleExpendingSection('tel-notes', 'Tel-Note')
+    const telNotes = createSimpleExpendingSection('tel-notes', 'Tel-Note');
+    const quickNotes = createSelect(quickTelNotes);
+    telNotes.appendChild(quickNotes);
 
     // phone or mail// 
   
-    const phoneOrMail = textSection('phoneOrMail');
-    const phoneOrMailLabel = labelMaker('email/phone');
+    const phoneOrMail = createSimpleExpendingSection('phoneOrMail', 'Be nice');
+    const niceList = createSelect(beNice);
+    phoneOrMail.appendChild(niceList);
+    // const phoneOrMail = textSection('phoneOrMail');
+    // const phoneOrMailLabel = labelMaker('email/phone');
   
-    const phoneButton = buildTextButton('input', 'radio', 'phoneButton', 'textBuilderButton', 'isPhone', 'phoneOrMail');
-    const emailButton = buildTextButton('input', 'radio', 'emailButton', 'textBuilderButton', 'isEmail',  'phoneOrMail');
+    // const phoneButton = buildTextButton('input', 'radio', 'phoneButton', 'textBuilderButton', 'isPhone', 'phoneOrMail');
+    // const emailButton = buildTextButton('input', 'radio', 'emailButton', 'textBuilderButton', 'isEmail',  'phoneOrMail');
   
-    phoneOrMail.appendChild(emailButton);
-    phoneOrMail.appendChild(phoneOrMailLabel)
-    phoneOrMail.appendChild(phoneButton)
+    // phoneOrMail.appendChild(emailButton);
+    // phoneOrMail.appendChild(phoneOrMailLabel)
+    // phoneOrMail.appendChild(phoneButton)
   
     // Am I late to respond? 
   
@@ -193,6 +198,7 @@ function createTextBuilder(){
     select.ariaPlaceholder = 'List';
     for(let i=1; i<listID.length; i++){
       const option = document.createElement('option');
+      option.className = 'option';
       option.innerText = listID[i];
       select.appendChild(option);
     }
@@ -210,29 +216,6 @@ function createTextBuilder(){
     listAndNameSection.appendChild(select)
     return listAndNameSection
   }
-  //
-  // function createSelect(listID){
-  //   const select = document.createElement('select');
-  //   select.className = 'selectList';
-  //   select.ariaPlaceholder = 'List';
-  //   for(let i=1; i<listID.length; i++){
-  //     const option = document.createElement('option');
-  //     option.innerText = listID[i];
-  //     select.appendChild(option);
-  //   }
-  //   select.addEventListener('change', async (event) => {
-  //     const selectedText = event.target.options[event.target.selectedIndex].text;
-  //     try {
-  //         await navigator.clipboard.writeText(selectedText);
-  //         console.log(`Copied to clipboard: ${selectedText}`);
-  //     } catch (err) {
-  //         console.error('Failed to copy text: ', err);
-  //     }
-  // });
-  
-  //   return select
-  // }
-  //
   function createStickySelect(listID){
     const select = document.createElement('select');
     select.className = 'selectList';

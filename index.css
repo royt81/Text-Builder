@@ -26,7 +26,10 @@ html, body
 *{
     font-family: monospace;
 }
-
+.option{
+    max-width: var(--expend-section-wide);
+    overflow: hidden;
+}
 html, body{
     margin: 0;
     padding: 0;
@@ -92,13 +95,13 @@ html, body{
     background-color: palevioletred;
 }
 #tel-notes{
-    background-color: rgb(147, 241, 241);
+    background-color: rgb(93, 140, 140);
 }
 #tel-notes-expend{
     background-color: cornflowerblue;
 }
 #phoneOrMail{
-    background-color: blueviolet;
+    background-color: rgb(155, 113, 194);
 }
 #isLate{
     background-color: skyblue;
@@ -190,7 +193,7 @@ html, body{
  }
  .label-test{
     min-width: var(--section-wide);
-    background-color: darkmagenta;
+    background-color: rgb(233, 201, 233, 0.3);
     text-align: center;
  }
 

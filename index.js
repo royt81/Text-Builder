@@ -129,9 +129,9 @@ function createTextBuilder(){
     textBuilder.appendChild(quickManuOne);
     textBuilder.appendChild(telNotes);
     textBuilder.appendChild(phoneOrMail);
-    textBuilder.appendChild(isLate);
-    textBuilder.appendChild(needOrGot);
-    textBuilder.appendChild(subjuct);
+    //textBuilder.appendChild(isLate);
+    //textBuilder.appendChild(needOrGot);
+    //textBuilder.appendChild(subjuct);
     //textBuilder.appendChild(recommend);
     //textBuilder.appendChild(contactMe);
     textBuilder.appendChild(runButton);

@@ -5,8 +5,11 @@
 html, body
 #container
 
+#welcomeScreen
+
 #textBuilder
 
+.select
 .manuExpend
 #quickManuOneExpend
 
@@ -16,8 +19,9 @@ html, body
     --background-wide: 3cm;
     --section-wide: 3cm;
     --expend-section-wide: 12cm;
-    --expend-section-min-wide: 6cm;
+    --expend-section-max-wide: 18cm;
     --list-wide: 2.5cm;
+    --little-button-wide: 1cm;
 
     --section-heigth:12vh;
     --expended-section-heigth:12vh;
@@ -26,10 +30,7 @@ html, body
 *{
     font-family: monospace;
 }
-.option{
-    max-width: var(--expend-section-wide);
-    overflow: hidden;
-}
+
 html, body{
     margin: 0;
     padding: 0;
@@ -47,7 +48,18 @@ html, body{
     align-items:flex-start;
     justify-content:flex-start;
 }
+#welcomeScreen{
+    height: 100%;
+    width: 100%;
+    background-color: rgb(239, 200, 200);
 
+    display: flex;
+    flex-direction: column;
+    justify-content: first baseline;
+    align-items: center;
+
+    font-size: 7vh;
+}
 #textBuilder{
 
     margin: 1vh;
@@ -100,14 +112,14 @@ html, body{
 #tel-notes-expend{
     background-color: cornflowerblue;
 }
-#phoneOrMail{
+#beNice{
     background-color: rgb(155, 113, 194);
 }
-#isLate{
-    background-color: skyblue;
+#sentenceBuilder{
+    background-color: rgb(219, 111, 149);
 }
-#needOrGot{
-    background-color: rgb(161, 136, 184);
+#turmination{
+    background-color: rgb(28, 159, 117);
 }
 #subjuct{
     background-color: bisque;
@@ -138,8 +150,7 @@ html, body{
     height: 10vh;
     width: var(--section-wide);
     color: blanchedalmond;
-    background-color: blueviolet;
-   
+    background-color: blueviolet; 
 }
 .pushButton:hover{
     background-color: rgb(133, 235, 82);
@@ -157,6 +168,13 @@ html, body{
 .selectList{
     width: var(--section-wide);
     height: 5vh;
+    border-radius: 7px;
+}
+
+.option{
+    width: 10cm;
+    overflow: hidden;
+
 }
 
 .manuExpend{
@@ -166,7 +184,8 @@ html, body{
     display: flex;
     flex-direction: row;
     height: var(--expended-section-heigth);
-    width: var(--expend-section-wide);
+    min-width: var(--expend-section-wide);
+    max-width: var(--expend-section-max-wide);
     gap: 1vh;
     
     padding: 0 1vh;
@@ -190,6 +209,7 @@ html, body{
     width: var(--section-wide);
     background-color: rgb(75, 95, 54);
     gap: 1vh;
+    border-radius: 5px;
  }
  .label-test{
     min-width: var(--section-wide);
@@ -207,3 +227,37 @@ html, body{
  .list-and-name-section-label{
 
  }
+
+ .littleButton{
+    height: var(--little-button-wide);
+    background-color: #b8216c;
+    width: var(--section-heigth);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 7px;
+    transform: rotate(90deg);
+ }
+ .littleButton:hover{
+    background-color: rgb(84, 122, 84);
+    cursor: pointer;
+ }
+ .littleButtonPushed{
+    height: var(--little-button-wide);
+    background-color: rgb(234, 200, 177);
+    width: var(--section-heigth);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 7px;
+    transform: rotate(90deg);
+ }
+ .littleButtonPushed:hover{
+    cursor: pointer;
+    background-color: blueviolet;
+ }
+
+
+

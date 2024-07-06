@@ -1,22 +1,31 @@
 
 const container = document.getElementById('container');
 
+const welcomeScreen = document.createElement('div'); 
+welcomeScreen.id = 'welcomeScreen';
+container.appendChild(welcomeScreen);
+welcomeScreen.innerText = 'Welcome!'; 
+welcomeScreen.addEventListener('click', ()=>{
+  createTextBuilder()
+})
 
-
-createTextBuilder();
+//createTextBuilder();
 function createTextBuilder(){
 
     const container = document.getElementById('container');
+    container.innerHTML = '';
     const textBuilder = document.createElement('div');
     textBuilder.id = 'textBuilder';
 
-    // trying to set open horizontal manu
+    // headlines manus
 
     const quickManuOne = createSimpleExpendingSection('testOne', 'Headlines');
-    const headlinsList = createSelect(headlines);
-    const quickCopyPasteList = createSelect(headlinesEN)
-    quickManuOne.appendChild(headlinsList);
-    quickManuOne.appendChild(quickCopyPasteList);
+    const thema = createNormalSelect(headlines, 'Thema DE');
+    const subject = createNormalSelect(headlinesEN, 'Subject EN');
+    const temlateList = createNormalSelect(template, 'template');
+    quickManuOne.appendChild(thema);
+    quickManuOne.appendChild(subject);
+    quickManuOne.appendChild(temlateList);
 
 
     // quick headlines copy past list //
@@ -25,89 +34,43 @@ function createTextBuilder(){
     const quickNotes = createSelect(quickTelNotes);
     telNotes.appendChild(quickNotes);
 
-    // phone or mail// 
+    // be nice//
   
-    const phoneOrMail = createSimpleExpendingSection('phoneOrMail', 'Be nice');
+    const beNice = createSimpleExpendingSection('beNice', 'Be nice!');
     const niceList = createSelect(beNice);
-    phoneOrMail.appendChild(niceList);
-    // const phoneOrMail = textSection('phoneOrMail');
-    // const phoneOrMailLabel = labelMaker('email/phone');
-  
-    // const phoneButton = buildTextButton('input', 'radio', 'phoneButton', 'textBuilderButton', 'isPhone', 'phoneOrMail');
-    // const emailButton = buildTextButton('input', 'radio', 'emailButton', 'textBuilderButton', 'isEmail',  'phoneOrMail');
-  
-    // phoneOrMail.appendChild(emailButton);
-    // phoneOrMail.appendChild(phoneOrMailLabel)
-    // phoneOrMail.appendChild(phoneButton)
-  
-    // Am I late to respond? 
-  
-    const isLate = textSection('isLate');
-    const lateLabel = labelMaker('late?');
-  
-    const lateButton = buildTextButton('input', 'checkbox', 'lateButton', 'textBuilderButton', 'islate', 'lateOrNo');
-  
-    isLate.appendChild(lateButton);
-    isLate.appendChild(lateLabel);
-  
-    //need or got?
-    const needOrGot = textSection('needOrGot');
-  
-    //const needOrGotLabel = labelMaker('need/got');
-  
-    const needButton = buildTextButton('input', 'radio','needButton','textBuilderButton','isneed', 'needOrGot')
-    const gotButton = buildTextButton('input', 'radio','gotButton','textBuilderButton','isgot','needOrGot')
-  
-    needOrGot.appendChild(needButton);
-    needOrGot.appendChild(gotButton)
-  
-    // what do I need?
-  
-    const subjuct = textSection('subjuct')
-  
-    const subjuctList = createSelect(needWantOptions, false);
+    beNice.appendChild(niceList); 
+
+    // cancelation section
+
+    const turmination = createSimpleExpendingSection('turmination', 'turmination');
+    const turminationList = createNormalSelect(cancellation, 'Kündigung/Widrruf');
+    turmination.appendChild(turminationList);
     
-    subjuct.appendChild(subjuctList); 
-  
-    // recommend me?
-  
-    const recommend = document.createElement('div'); 
-    recommend.id = 'recommend'; 
-    recommend.className = 'textBuilderSection';
-  
-    const recommendLabel = document.createElement('div');
-    recommendLabel.className = 'textbuilderLabel';
-    recommendLabel.innerText = 'Recommend?';
-  
-    const recommendButton = buildTextButton('input', 'checkbox')
-  
-    recommend.appendChild(recommendButton);
-    recommend.appendChild(recommendLabel);
-  
-    // contact me?
-  
-    const contactMe = document.createElement('div'); 
-    contactMe.id = 'contactMe'; 
-    contactMe.className = 'textBuilderSection';
-  
-    const contactMeLabel = document.createElement('div');
-    contactMeLabel.className = 'textbuilderLabel';
-    contactMeLabel.innerText = 'contact me?';
-  
-    const contactMeButton = buildTextButton('input', 'checkbox','contactMeButton','textBuilderButton','iscontactMe', 'contactMeOrNo')
-  
-    contactMe.appendChild(contactMeButton);
-    contactMe.appendChild(contactMeLabel);
-    // closing button
-  
-    const runButton = document.createElement('div');
-    runButton.className = 'pushButton';
-    runButton.id = 'runButton';
-    runButton.innerText = 'RUN';
-  
-    runButton.addEventListener('click', ()=>{
-      makeTheText();
+    // formulating a sentence
+
+    const sentenceBuilder = createSimpleExpendingSection('sentenceBuilder', 'Build');
+
+    const fA = document.createElement('div');
+    fA.className = 'littleButton';
+    fA.innerText = 'Anfrage';
+    fA.addEventListener('click', ()=>{
+      fA.className = (fA.className !== 'littleButtonPushed' ? (fA.innerText = 'FA', 'littleButtonPushed')  : (fA.innerText = 'Anfrage', 'littleButton'))
     })
+
+    const mailPhone = document.createElement('div');
+    mailPhone.className = 'littleButton';
+    mailPhone.innerText = 'Mail';
+    mailPhone.addEventListener('click', ()=>{
+      mailPhone.className = (mailPhone.className !== 'littleButtonPushed' ? (mailPhone.innerText = 'Phone', 'littleButtonPushed')  : (mailPhone.innerText = 'Mail', 'littleButton'))
+    })
+
+    const whatDoINeed = '';
+
+
+    const sentence = `${openning}`
+
+    sentenceBuilder.appendChild(fA)
+    sentenceBuilder.appendChild(mailPhone)
   
     //delete button
   
@@ -128,25 +91,19 @@ function createTextBuilder(){
   
     textBuilder.appendChild(quickManuOne);
     textBuilder.appendChild(telNotes);
-    textBuilder.appendChild(phoneOrMail);
-    textBuilder.appendChild(isLate);
-    textBuilder.appendChild(needOrGot);
-    textBuilder.appendChild(subjuct);
-    //textBuilder.appendChild(recommend);
-    //textBuilder.appendChild(contactMe);
-    textBuilder.appendChild(runButton);
+    textBuilder.appendChild(beNice);
+    textBuilder.appendChild(turmination);
+    textBuilder.appendChild(sentenceBuilder);
     textBuilder.appendChild(deleteButton);
-   // textBuilder.appendChild(firstList);
-    
-    container.appendChild(textBuilder)
-    //contact.appendChild(textBuilder);
-  }
 
-  function makeTheText(){
+    container.appendChild(textBuilder);
+}
+
+function makeTheText(){
     console.log('next to do: get all the notes from work computer that you use during the day nd copy to -list')
-  }
+}
   
-  function makeCopyPasteList(sourceList){
+function makeCopyPasteList(sourceList){
   
     const list = document.createElement('select');
     list.className = 'copyPastList';
@@ -159,8 +116,8 @@ function createTextBuilder(){
     }
     console.log(list)
   
-  }//to be erased
-  function buildTextButton(element, type, id, className, value, name){
+}//to be erased
+function buildTextButton(element, type, id, className, value, name){
     const button = document.createElement(element);
     button.type = type;
     button.id = id;
@@ -169,23 +126,22 @@ function createTextBuilder(){
     button.name = name;
   
     return button            
-  }
-  function labelMaker(text){
+}
+function labelMaker(text){
     const label = document.createElement('div');
     label.className = 'textbuilderLabel';
     label.innerText = text; 
   
     return label
-  }
-  function textSection(id){
+}
+function textSection(id){
     const section = document.createElement('div');
     section.className = 'textBuilderSection';
     section.id = id;
   
     return section;
-  }
-  //
-  function createSelect(listID){
+}
+function createSelect(listID){
     const listAndNameSection = document.createElement('div');
     listAndNameSection.className = 'list-and-name-section'
     const name = listID[0];
@@ -196,7 +152,7 @@ function createTextBuilder(){
     const select = document.createElement('select');
     select.className = 'selectList';
     select.ariaPlaceholder = 'List';
-    for(let i=1; i<listID.length; i++){
+    for(let i=0; i<listID.length; i++){
       const option = document.createElement('option');
       option.className = 'option';
       option.innerText = listID[i];
@@ -206,7 +162,7 @@ function createTextBuilder(){
       const selectedText = event.target.options[event.target.selectedIndex].text;
       try {
           await navigator.clipboard.writeText(selectedText);
-          console.log(`Copied to clipboard: ${selectedText}`);
+          //console.log(`Copied to clipboard: ${selectedText}`);
       } catch (err) {
           console.error('Failed to copy text: ', err);
       }
@@ -215,8 +171,8 @@ function createTextBuilder(){
     listAndNameSection.appendChild(infoLabel)
     listAndNameSection.appendChild(select)
     return listAndNameSection
-  }
-  function createStickySelect(listID){
+}
+function createStickySelect(listID){
     const select = document.createElement('select');
     select.className = 'selectList';
     for(let i=0; i<listID.length; i++){
@@ -225,7 +181,6 @@ function createTextBuilder(){
       select.appendChild(option);
       select.addEventListener('change', async() => {
       const selectedOption = select.options[select.selectedIndex].innerText;
-  
       try {
         const currentClipboardText = await navigator.clipboard.readText();
         const newClipboardText = currentClipboardText + selectedOption;
@@ -236,10 +191,53 @@ function createTextBuilder(){
       }
       });
     }
-  
     return select
+}
+
+function createNormalSelect(array, placeHolder) {
+  const select = document.createElement('select');
+  select.className = 'selectList';
+
+  const placeholderOption = document.createElement('option');
+  placeholderOption.textContent = placeHolder;
+  placeholderOption.disabled = true;
+  placeholderOption.selected = true;
+  select.appendChild(placeholderOption);
+
+  array.forEach(item => {
+    const option = document.createElement('option');
+    option.className = 'option'
+    option.textContent = item;
+    option.value = item; // Set the value to the text to be copied
+    select.appendChild(option);
+  });
+
+  // Add a change event listener to the select element
+  select.addEventListener('change', (event) => {
+    const selectedText = event.target.value;
+    copyToClipboard(selectedText);
+  });
+
+  async function copyToClipboard(text) {
+    // Creating a temporary textarea to copy the text
+    const textarea = document.createElement('textarea');
+    textarea.value = text;
+    document.body.appendChild(textarea);
+    textarea.select();
+    try {
+      await navigator.clipboard.writeText(textarea.value);
+      //console.log(`Copied to clipboard: ${text}`);
+    } catch (err) {
+      console.error('Failed to copy text: ', err);
+    } finally {
+      document.body.removeChild(textarea);
+    }
   }
-  function createExpendingSection(id1, id2, labelName){
+
+  return select;
+}
+
+function createExpendingSection(id1, id2, labelName){
 
     const section = textSection(id1); 
     const label = labelMaker(`${labelName}`);
@@ -261,8 +259,8 @@ function createTextBuilder(){
       textBuilder.replaceChild(expendeSection, section);
     })
     return section;
-  }
-  function createSimpleExpendingSection(id, label){
+}//to be removed
+function createSimpleExpendingSection(id, label){
     const section = document.createElement('div');
     section.className = 'expend-manu-test';
     section.id = id; 
@@ -277,7 +275,18 @@ function createTextBuilder(){
       section.style.width = 'var(--section-wide)'
     })
     return section
-  }
+}
+  
+function dayOfTheWeek(){
+  let dailyClose = '';
+  const today = new Date();
+  const todayNumber = today.getDate();
+  todayNumber == 5 ? dailyClose = closingWEDE : todayNumber == 0 ? dailyClose = closingMondayDE : dailyClose = closingNormalDayDE;
+  console.log(closingMondayDE);
+}
+dayOfTheWeek()
+
+  
   
 
 

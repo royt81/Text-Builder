@@ -13,15 +13,18 @@ html, body
 .manuExpend
 #quickManuOneExpend
 
+
+run
 */
 
 :root{
     --background-wide: 3cm;
     --section-wide: 3cm;
-    --expend-section-wide: 12cm;
+    --expend-section-wide: 15cm;
     --expend-section-max-wide: 18cm;
     --list-wide: 2.5cm;
     --little-button-wide: 1cm;
+    --select-wide: 2cm;
 
     --section-heigth:12vh;
     --expended-section-heigth:12vh;
@@ -37,6 +40,13 @@ html, body{
     height: 100%;
     width: 100%;
 }
+
+select{
+    border-radius: 2vh;
+    height: 1cm;
+    width: var(--select-wide);
+}
+
 
 #container{
     height: 100%;
@@ -79,7 +89,6 @@ html, body{
 
     border-radius: 1vh;
 }
-
 .textBuilderSection{
     align-items: center;
     justify-content: space-around;
@@ -94,11 +103,9 @@ html, body{
     color: rgb(49, 40, 57);
     cursor: pointer;
 }
-
 .textbuilderLabel{
     background-color: rgba(204, 208, 212, 0.2);
 }
-
 #quickManuOne{
     display: flex;
     flex-direction: row;
@@ -132,7 +139,8 @@ html, body{
     background-color: rgb(50, 50, 144);
 }
 #runButton{
-    background-color: rgb(18, 17, 17);
+    background-color: rgb(107, 92, 92);
+    width: 1cm;
 }
 #quickManuOneExpend{
     background-color: bisque;
@@ -170,13 +178,10 @@ html, body{
     height: 5vh;
     border-radius: 7px;
 }
-
 .option{
     width: 10cm;
     overflow: hidden;
-
 }
-
 .manuExpend{
     align-items: center;
     justify-content: flex-end;
@@ -190,7 +195,6 @@ html, body{
     
     padding: 0 1vh;
 }
-
 
 /* .quickManuOneTest{
     display: flex;
@@ -216,7 +220,6 @@ html, body{
     background-color: rgb(233, 201, 233, 0.3);
     text-align: center;
  }
-
  .list-and-name-section{
     display: flex;
     flex-direction: column;

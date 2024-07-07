@@ -31,14 +31,14 @@ function createTextBuilder(){
     // quick headlines copy past list //
   
     const telNotes = createSimpleExpendingSection('tel-notes', 'Tel-Note');
-    const quickNotes = createSelect(quickTelNotes);
+    const quickNotes = createNormalSelect(quickTelNotes, 'Tel-Notes');
     telNotes.appendChild(quickNotes);
 
     // be nice//
   
-    const beNice = createSimpleExpendingSection('beNice', 'Be nice!');
-    const niceList = createSelect(beNice);
-    beNice.appendChild(niceList); 
+    const beNiceSection = createSimpleExpendingSection('beNice', 'Be nice!');
+    //const niceList = createNormalSelect(beNice, 'Be Nice!');
+    //beNiceSection.appendChild(niceList); 
 
     // cancelation section
 
@@ -50,27 +50,86 @@ function createTextBuilder(){
 
     const sentenceBuilder = createSimpleExpendingSection('sentenceBuilder', 'Build');
 
-    const fA = document.createElement('div');
-    fA.className = 'littleButton';
-    fA.innerText = 'Anfrage';
-    fA.addEventListener('click', ()=>{
-      fA.className = (fA.className !== 'littleButtonPushed' ? (fA.innerText = 'FA', 'littleButtonPushed')  : (fA.innerText = 'Anfrage', 'littleButton'))
+    // const fA = document.createElement('div');
+    // fA.className = 'littleButton';
+    // fA.innerText = 'Anfrage';
+    // fA.addEventListener('click', ()=>{
+    //   fA.className = (fA.className !== 'littleButtonPushed' ? (fA.innerText = 'FA', 'littleButtonPushed')  : (fA.innerText = 'Anfrage', 'littleButton'))
+    // })
+
+    // const mailPhone = document.createElement('div');
+    // mailPhone.className = 'littleButton';
+    // mailPhone.innerText = 'Mail';
+    // mailPhone.addEventListener('click', ()=>{
+    //   mailPhone.className = (mailPhone.className !== 'littleButtonPushed' ? (mailPhone.innerText = 'Phone', 'littleButtonPushed')  : (mailPhone.innerText = 'Mail', 'littleButton'))
+    // })
+    const callingReson = document.createElement('select');
+    let secoundLine = '';
+
+
+    const email = document.createElement('option');
+    email.innerText = 'email';
+    email.value = secoundLineEmail
+    const phone = document.createElement('option');
+    phone.innerText = 'phone';
+    phone.value = secoundLinePhone
+    const fA = document.createElement('option');
+    fA.innerText = 'FA';
+    fA.value = secoundLineFA;
+    const wechsel = document.createElement('option');
+    wechsel.innerText = 'WP';
+    const anfrage = document.createElement('option');
+    anfrage.innerText = 'Anfrage';
+
+    secoundLine = secoundLineEmail;
+    callingReson.addEventListener('change', ()=>{
+      secoundLine = callingReson.value
     })
 
-    const mailPhone = document.createElement('div');
-    mailPhone.className = 'littleButton';
-    mailPhone.innerText = 'Mail';
-    mailPhone.addEventListener('click', ()=>{
-      mailPhone.className = (mailPhone.className !== 'littleButtonPushed' ? (mailPhone.innerText = 'Phone', 'littleButtonPushed')  : (mailPhone.innerText = 'Mail', 'littleButton'))
+    const subjectList = document.createElement('select');
+    for(let i=0; i<needWantOptions.length; i++){
+      const option = document.createElement('option');
+      option.innerText = needWantOptions[i];
+      subjectList.appendChild(option);
+    }
+
+
+
+    const runButton = document.createElement('div');
+    runButton.id = 'runButton';
+    runButton.classList.add('pushButton');
+    runButton.innerText = 'RUN!';
+
+    runButton.addEventListener('click', ()=>{
+      const closing = dayOfTheWeek();
+      const sentence = `
+${firstLine}
+
+${secoundLine}
+
+${closing}
+  `
+      console.log(firstLine);
+      console.log(secoundLine);
+      console.log(closing)
+      console.log(sentence)
+      copyToClipboard(sentence)
     })
 
-    const whatDoINeed = '';
 
+   
 
-    const sentence = `${openning}`
+    callingReson.appendChild(email)
+    callingReson.appendChild(phone)
+    callingReson.appendChild(fA)
+    //callingReson.appendChild(wechsel)
+    //callingReson.appendChild(anfrage)
 
-    sentenceBuilder.appendChild(fA)
-    sentenceBuilder.appendChild(mailPhone)
+    // sentenceBuilder.appendChild(fA)
+    // sentenceBuilder.appendChild(mailPhone)
+    sentenceBuilder.appendChild(callingReson)
+    sentenceBuilder.appendChild(subjectList)
+    sentenceBuilder.appendChild(runButton)
   
     //delete button
   
@@ -91,7 +150,7 @@ function createTextBuilder(){
   
     textBuilder.appendChild(quickManuOne);
     textBuilder.appendChild(telNotes);
-    textBuilder.appendChild(beNice);
+    //textBuilder.appendChild(beNice);
     textBuilder.appendChild(turmination);
     textBuilder.appendChild(sentenceBuilder);
     textBuilder.appendChild(deleteButton);
@@ -126,21 +185,21 @@ function buildTextButton(element, type, id, className, value, name){
     button.name = name;
   
     return button            
-}
+}//to be removed
 function labelMaker(text){
     const label = document.createElement('div');
     label.className = 'textbuilderLabel';
     label.innerText = text; 
   
     return label
-}
+}//to be removed
 function textSection(id){
     const section = document.createElement('div');
     section.className = 'textBuilderSection';
     section.id = id;
   
     return section;
-}
+}//to be removed
 function createSelect(listID){
     const listAndNameSection = document.createElement('div');
     listAndNameSection.className = 'list-and-name-section'
@@ -171,7 +230,7 @@ function createSelect(listID){
     listAndNameSection.appendChild(infoLabel)
     listAndNameSection.appendChild(select)
     return listAndNameSection
-}
+}//to be removed
 function createStickySelect(listID){
     const select = document.createElement('select');
     select.className = 'selectList';
@@ -193,7 +252,6 @@ function createStickySelect(listID){
     }
     return select
 }
-
 function createNormalSelect(array, placeHolder) {
   const select = document.createElement('select');
   select.className = 'selectList';
@@ -206,7 +264,7 @@ function createNormalSelect(array, placeHolder) {
 
   array.forEach(item => {
     const option = document.createElement('option');
-    option.className = 'option'
+    option.classList.add('option');
     option.textContent = item;
     option.value = item; // Set the value to the text to be copied
     select.appendChild(option);
@@ -236,7 +294,6 @@ function createNormalSelect(array, placeHolder) {
 
   return select;
 }
-
 function createExpendingSection(id1, id2, labelName){
 
     const section = textSection(id1); 
@@ -275,17 +332,45 @@ function createSimpleExpendingSection(id, label){
       section.style.width = 'var(--section-wide)'
     })
     return section
+} 
+function createSelectFromObjectList(list){
+  const select = document.createElement('select');
+  for(let i=0; i<list.length; i++){
+    const option = document.createElement('option');
+    option.innerText = list[i][0];
+    option.value = list[i][1];
+
+    option.addEventListener('change', ()=>{
+      copyToClipboard(option.value)
+    })
+  }
 }
-  
+
 function dayOfTheWeek(){
   let dailyClose = '';
   const today = new Date();
   const todayNumber = today.getDate();
   todayNumber == 5 ? dailyClose = closingWEDE : todayNumber == 0 ? dailyClose = closingMondayDE : dailyClose = closingNormalDayDE;
-  console.log(closingMondayDE);
-}
-dayOfTheWeek()
+  //console.log(dailyClose);
 
+  return dailyClose
+}
+
+async function copyToClipboard(text) {
+  // Creating a temporary textarea to copy the text
+  const textarea = document.createElement('textarea');
+  textarea.value = text;
+  document.body.appendChild(textarea);
+  textarea.select();
+  try {
+    await navigator.clipboard.writeText(textarea.value);
+    //console.log(`Copied to clipboard: ${text}`);
+  } catch (err) {
+    console.error('Failed to copy text: ', err);
+  } finally {
+    document.body.removeChild(textarea);
+  }
+}
   
   
 

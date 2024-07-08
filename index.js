@@ -102,17 +102,16 @@ function createTextBuilder(){
 
     runButton.addEventListener('click', ()=>{
       const closing = dayOfTheWeek();
-      const sentence = `
-${firstLine}
+      const sentence = 
+`${firstLine}
 
 ${secoundLine}
 
-${closing}
-  `
-      console.log(firstLine);
-      console.log(secoundLine);
-      console.log(closing)
-      console.log(sentence)
+${closing}`
+      // console.log(firstLine);
+      // console.log(secoundLine);
+      // console.log(closing)
+      // console.log(sentence)
       copyToClipboard(sentence)
     })
 
@@ -265,8 +264,8 @@ function createNormalSelect(array, placeHolder) {
   array.forEach(item => {
     const option = document.createElement('option');
     option.classList.add('option');
-    option.textContent = item;
-    option.value = item; // Set the value to the text to be copied
+    option.textContent = item[0];
+    option.value = item[1]; 
     select.appendChild(option);
   });
 

@@ -86,54 +86,61 @@ const needWantOptions = [
 // ]
 
 const headlines = [
-  'Unser Gespräch',
-  'Dein Wechsel zu Rabot-Charge',
-  'Deine Anfrage',
-  'Anfrage',
-  'Dein Wideruf',
-  'Deine Kündigung',
-  'Rechnungskorrektur',
+  ['Unser Gespräch', 'Unser Gespräch'],
+  ['Dein Wechsel', 'Dein Wechsel zu Rabot-Charge'],
+  ['Deine Anfrage', 'Deine Anfrage'],
+  ['Anfrage', 'Anfrage'],
+  ['Dein Wideruf', 'Dein Wideruf V/K'],
+  ['Deine Kündigung', 'Deine Kündigung V/K'],
+  ['Rechnungskorrektur', 'Rechnungskorrektur'],
 ]
 const headlinesEN = [
-  'Our discotion',
-  'Your transfer to Rabot-Charge',
-  'Your inquery',
-  'Inquery',
-  'Your cancelation',
-  'Your termanation'
+  ['Our discotion', 'Our discotion'],
+  ['Your transfer', 'Your transfer to Rabot-Charge'],
+  ['Your inquery','Your inquery'],
+  ['Inquery', 'Inquery'],
+  ['Your cancelation', 'Your cancelation'],
+  ['Your termanation','Your termanation']
 ]
 
 const template = [
-`Hallo {!%customer.firstName,fallback=%},
+['nette Gespräch', `Hallo {!%customer.firstName,fallback=%},
 
 vielen Dank für das nette Gespräch.
 
 Solltest du weitere Fragen haben, komme gerne auf mich zu. Deine Email landet direkt bei mir und ich würde mich dann sofort bei dir melden.
 ​
-​Ich wünsche dir einen tollen Tag.`,
+​Ich wünsche dir einen tollen Tag.`],
 
-`Hallo {!%customer.firstName,fallback=%},
+['deine Anfrage', `Hallo {!%customer.firstName,fallback=%},
 
 vielen Dank für deine Anfrage.
 Bitte entschuldige unsere späte Rückmeldung, wir haben derzeit ein erhöhtes Mailaufkommen.​
 ​
-Solltest du weitere Fragen haben, komme gerne auf mich zu. Deine Email landet direkt bei mir und ich würde mich dann sofort bei dir melden.
+Solltest du weitere Fragen haben, komme gerne auf mich zu. Deine E-Mail landet direkt bei mir und ich würde mich dann sofort bei dir melden.
 
-Ich wünsche dir einen tollen Tag.`
+Ich wünsche dir einen tollen Tag.`],
+['Fachabteilung', `Hallo {%customer.firstName,fallback=%},
+
+ich habe eine Rückantwort aus der Fachabteilung erhalten.
+  
+  
+Ich wünsche dir einen schönen Tag`
+  ]
 ]
 
 const quickTelNotes = [
-    'G: Das Thema wurde bereits mit eiem Kollegen besprochen',
-    'G: KD rief an, um den Status seiner WP zu erfahren',
-    `G: KD wollte früher bei uns anfangen.
-    \nV: KD verlangt nach SoKü von AV, Vertrag bei uns widerrufen und ein neuer Vertrag schlissen.`,
+    ['Kollegen besprochen', 'G: Das Thema wurde bereits mit eiem Kollegen besprochen'],
+    ['WP Status', 'G: KD rief an, um den Status seiner WP zu erfahren'],
+    ['Früher anfangen', `G: KD wollte früher bei uns anfangen.
+V: KD verlangt nach SoKü von AV, Vertrag bei uns widerrufen und ein neuer Vertrag schlissen.`],
   
 ]
 // const telTicket = [
 
 // ]
 const cancellation = [
-`Hallo {%customer.firstName,fallback=%},
+['Kündigung', `Hallo {%customer.firstName,fallback=%},
 
 vielen Dank für deine Anfrage.
 ​
@@ -144,9 +151,9 @@ Deine Vertragsnummer lautet: XXXXXX
 
 Du erhältst innerhalb von 6 Werktagen eine Kündigungsbestätigung.
 
-​Ich wünsche dir einen tollen Tag.`,
+​Ich wünsche dir einen tollen Tag.`],
 
-`Hallo {%customer.firstName,fallback=%},
+['Widerrufs', `Hallo {%customer.firstName,fallback=%},
 
 vielen Dank für deine Anfrage.
 ​
@@ -157,7 +164,7 @@ Deine Vertragsnummer lautet: XXXXXX
 
 Du erhältst innerhalb von 6 Werktagen eine Widerrufsbestätigung.
 
-​Ich wünsche dir einen tollen Tag.`
+​Ich wünsche dir einen tollen Tag.`]
 ]
 
 

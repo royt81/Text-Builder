@@ -104,7 +104,7 @@ const headlinesEN = [
 ]
 
 const template = [
-['nette Gespräch', `Hallo {!%customer.firstName,fallback=%},
+['nette Gespräch', `Hallo {%customer.firstName,fallback=%},
 
 vielen Dank für das nette Gespräch.
 
@@ -112,7 +112,7 @@ Solltest du weitere Fragen haben, komme gerne auf mich zu. Deine Email landet di
 ​
 ​Ich wünsche dir einen tollen Tag.`],
 
-['deine Anfrage', `Hallo {!%customer.firstName,fallback=%},
+['deine Anfrage', `Hallo {%customer.firstName,fallback=%},
 
 vielen Dank für deine Anfrage.
 Bitte entschuldige unsere späte Rückmeldung, wir haben derzeit ein erhöhtes Mailaufkommen.​
